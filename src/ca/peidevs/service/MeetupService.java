@@ -29,12 +29,17 @@ public class MeetupService {
 
     /**
      * Cleanup this API, there is no reason it is doing so many things
-     * Move key to the constructor
+     *
+     * Have this function return the raw MeetupEvent
+     * Guest List can be a separate function.
+     * This way when there is a GUI in place, when we query we can show the event name and location that is found
+     * Currently that level of detail is hidden
+     *
      * @param meetupGroup
      * @param meetupDate
      * @return
      */
-    public GuestList getGuestList(String meetupGroup, String meetupDate, String key) throws IOException{
+    public GuestList getGuestList(String meetupGroup, String meetupDate) throws IOException{
         GuestList guestList = new GuestList();
 
         String eventUrl =  meetupUrlGenerator.generateEventsURL(meetupGroup);

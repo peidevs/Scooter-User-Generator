@@ -17,7 +17,7 @@ public class Generator {
 
         MeetupService meetupService = new MeetupService( new MeetupUrlGenerator( key ));
         try{
-            GuestList guestList = meetupService.getGuestList(meetupGroup, meetupDate, key);
+            GuestList guestList = meetupService.getGuestList(meetupGroup, meetupDate);
 
             ScooterFormatter dFormatter = new ScooterDojoFormatter();
             String dojoResult = dFormatter.format( guestList );
