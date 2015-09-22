@@ -5,7 +5,7 @@ Java App. Queries Meetup to get the event list
 Run generator, and passes in 3 arguments. Group Name, meetup date and private key.
 
 Example 
-```java
+```Batchfile
 java Generator pei-developers 2015-09-22 jlk234jk234lkj34lk2j4lk23
 ```
 (the key listed is gibberish)
@@ -16,10 +16,10 @@ Also some classpath things with lib/ folder. App uses gson to do some deserializ
 can move this to scripts to deal with classpaths 
 
 # Meetup key
-Log into the meetup api site
-http://www.meetup.com/meetup_api/
-Go to the API Key link (https://secure.meetup.com/meetup_api/key/)
-Copy the key
+* Log into the meetup api site (http://www.meetup.com/meetup_api/)
+* Go to the API Key link (https://secure.meetup.com/meetup_api/key/)
+* Click the lock to show the key
+* Copy the key
 
 This key is your key which is assigned to your meetup profile
 
