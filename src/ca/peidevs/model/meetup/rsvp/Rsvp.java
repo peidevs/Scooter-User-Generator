@@ -1,6 +1,4 @@
-package ca.peidevs.model.rsvp;
-
-import ca.peidevs.model.common.Group;
+package ca.peidevs.model.meetup.rsvp;
 
 public class Rsvp {
     private int guests;

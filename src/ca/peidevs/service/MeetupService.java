@@ -8,10 +8,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 import javax.net.ssl.HttpsURLConnection;
 
-import ca.peidevs.model.Guest;
-import ca.peidevs.model.GuestList;
-import ca.peidevs.model.meetupEvent.MeetupEvent;
-import ca.peidevs.model.rsvp.RsvpList;
+import ca.peidevs.model.scooter.Guest;
+import ca.peidevs.model.scooter.GuestList;
+import ca.peidevs.model.meetup.event.MeetupEvent;
+import ca.peidevs.model.meetup.rsvp.RsvpList;
 import com.google.gson.Gson;
 
 public class MeetupService {

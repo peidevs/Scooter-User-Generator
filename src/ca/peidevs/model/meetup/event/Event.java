@@ -1,7 +1,7 @@
-package ca.peidevs.model.meetupEvent;
+package ca.peidevs.model.meetup.event;
 
-import ca.peidevs.model.common.Group;
-import ca.peidevs.model.common.Venue;
+import ca.peidevs.model.meetup.common.Group;
+import ca.peidevs.model.meetup.common.Venue;
 
 import java.time.LocalDate;
 

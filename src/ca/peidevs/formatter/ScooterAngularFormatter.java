@@ -1,7 +1,7 @@
 package ca.peidevs.formatter;
 
-import ca.peidevs.model.Guest;
-import ca.peidevs.model.GuestList;
+import ca.peidevs.model.scooter.Guest;
+import ca.peidevs.model.scooter.GuestList;
 
 /**
  * each user in the array has their own object. name value pairs

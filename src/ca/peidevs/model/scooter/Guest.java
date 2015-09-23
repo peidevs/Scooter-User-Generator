@@ -1,4 +1,4 @@
-package ca.peidevs.model;
+package ca.peidevs.model.scooter;
 
 public class Guest {
     private String name;

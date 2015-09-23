@@ -1,12 +1,8 @@
-import ca.peidevs.formatter.ScooterAngularFormatter;
-import ca.peidevs.formatter.ScooterDojoFormatter;
-import ca.peidevs.formatter.ScooterFormatter;
-import ca.peidevs.model.meetupEvent.Event;
-import ca.peidevs.model.meetupEvent.MeetupEvent;
-import ca.peidevs.model.rsvp.RsvpList;
+import ca.peidevs.model.meetup.event.Event;
+import ca.peidevs.model.meetup.event.MeetupEvent;
+import ca.peidevs.model.meetup.rsvp.RsvpList;
 import ca.peidevs.service.MeetupService;
 import ca.peidevs.service.MeetupUrlGenerator;
-import ca.peidevs.model.GuestList;
 
 public class Generator {
 
@@ -24,12 +20,16 @@ public class Generator {
             MeetupEvent events = meetupService.getUpcomingMeetupEvents( meetupGroup );
             Event event = events.getEventByDate( meetupDate );
 
-            if( "".equals( event.getId()) ){
+            if( event.getId() == null ){
                 System.out.println( "No Event found for this date");
                 return;
             }
 
             System.out.println("Event Name : " + event.getName());
+
+            if( event.getVenue() != null ){
+                System.out.println("Event Location : " + event.getVenue().getName());
+            }
 
             RsvpList rsvp = meetupService.getRsvpList( event.getId() );
 

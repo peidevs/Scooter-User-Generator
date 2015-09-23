@@ -1,6 +1,6 @@
 package ca.peidevs.formatter;
 
-import ca.peidevs.model.GuestList;
+import ca.peidevs.model.scooter.GuestList;
 
 public abstract class ScooterFormatter {
 

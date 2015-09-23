@@ -1,4 +1,4 @@
-package ca.peidevs.model.common;
+package ca.peidevs.model.meetup.common;
 
 public class Group {
 

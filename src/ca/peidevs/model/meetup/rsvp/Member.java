@@ -1,4 +1,4 @@
-package ca.peidevs.model.rsvp;
+package ca.peidevs.model.meetup.rsvp;
 
 public class Member {
 

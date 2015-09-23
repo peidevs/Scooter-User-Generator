@@ -1,4 +1,4 @@
-package ca.peidevs.model.meetupEvent;
+package ca.peidevs.model.meetup.event;
 
 import com.google.gson.annotations.SerializedName;
 
