@@ -1,8 +1,14 @@
 # Scooter-User-Generator
 Java App. Queries Meetup to get the event list
 
-# Usage
-Run generator, and passes in 3 arguments. Group Name, meetup date and private key.
+# To Build
+* install [Gradle](http://gradle.org/gradle-download/)
+* type 'gradle scooterBuild'
+
+# To Run
+* if built with Gradle, 'cd staging'
+* Run generator with 3 arguments: Group Name, meetup date and private key
+* example: java -jar ScooterUserGenerator.jar PEI-Developers 2015-10-08 API_KEY 
 
 Example 
 ```Batchfile
