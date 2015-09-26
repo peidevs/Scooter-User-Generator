@@ -4,12 +4,7 @@ import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.List;
-import java.util.stream.Collectors;
 import javax.net.ssl.HttpsURLConnection;
-
-import ca.peidevs.model.scooter.Guest;
-import ca.peidevs.model.scooter.GuestList;
 import ca.peidevs.model.meetup.event.MeetupEvent;
 import ca.peidevs.model.meetup.rsvp.RsvpList;
 import com.google.gson.Gson;
@@ -39,24 +34,6 @@ public class MeetupService {
 
         return rsvpList;
     };
-
-
-    /**
-     * Move this to RSvpList model?? Does this make sense? RSVP to GuestList is more of a transform then a pull from the model
-     * @param rsvps
-     * @return
-     */
-    private GuestList getGuestList(RsvpList rsvps) {
-        GuestList guestList = new GuestList();
-
-        List<Guest> guests = rsvps.getRsvps().stream()
-                .filter( x -> x.isAttending())
-                .map( x -> new Guest( x.getMember().getName(), x.getNumGuests()))
-                .collect(Collectors.toList());
-
-        guestList.setGuests( guests );
-        return guestList;
-    }
 
     /**
      *

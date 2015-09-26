@@ -1,3 +1,4 @@
+import ca.peidevs.formatter.ScooterFormatter;
 import ca.peidevs.model.meetup.event.Event;
 import ca.peidevs.model.meetup.event.MeetupEvent;
 import ca.peidevs.model.meetup.rsvp.RsvpList;
@@ -31,26 +32,17 @@ public class Generator {
                 System.out.println("Event Location : " + event.getVenue().getName());
             }
 
-            RsvpList rsvp = meetupService.getRsvpList( event.getId() );
+            RsvpList rsvpList = meetupService.getRsvpList( event.getId() );
 
+            ScooterFormatter formatter = new ScooterFormatter( rsvpList );
 
+            System.out.println("\nList for Dojo Version");
+            System.out.println("---------------------");
+            System.out.println( formatter.formatDojo() );
 
-
-//            ScooterFormatter dFormatter = new ScooterDojoFormatter();
-//            String dojoResult = dFormatter.format( guestList );
-//
-//            System.out.println("\nList for Dojo Version");
-//            System.out.println("---------------------");
-//            System.out.println(dojoResult);
-//
-//            ScooterFormatter aFormatter = new ScooterAngularFormatter();
-//            String angularResult = aFormatter.format( guestList );
-//
-//            System.out.println("\nList for Angular Version");
-//            System.out.println("------------------------");
-//            System.out.println( angularResult );
-
-
+            System.out.println("\nList for Angular Version");
+            System.out.println("------------------------");
+            System.out.println( formatter.formatAngular() );
         } catch( Exception ex){
             ex.printStackTrace();
         }
