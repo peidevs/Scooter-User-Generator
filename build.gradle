@@ -30,11 +30,14 @@ dependencies {
     releaseJars 'com.google.code.gson:gson:2.3.1'
 }
 
-task init {
-    delete "${buildDir}/jars"
+task init(dependsOn: [ 'cleanup']) {
     mkdir "${buildDir}/jars"
-    delete stagingDir
     mkdir stagingDir
+}
+
+task cleanup {
+    delete "${buildDir}"
+    delete stagingDir
 }
 
 task copyReleaseJars(type: Copy, dependsOn: 'init') {
@@ -56,4 +59,3 @@ task scooterBuild(dependsOn: ['test', 'copyReleaseJars', 'jar']) << {
 
     ant.unzip(src: "${buildDir}/ScooterUserGenerator.zip", dest: project.stagingDir)
 }
-
