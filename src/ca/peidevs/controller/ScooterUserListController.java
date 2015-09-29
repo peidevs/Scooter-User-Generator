@@ -24,15 +24,19 @@ public class ScooterUserListController {
             MeetupEvent events = meetupService.getUpcomingMeetupEvents( groupName, key );
             Event event = events.getEventByDate(eventDate);
 
-            if( event.getId() == null ){
-                this.view.setMeetupName(event.getName());
-                this.view.setMeetupLocation(event.getVenue());
+            if( event.getId() != null ){
+                view.setMeetupName(event.getName());
+                view.setMeetupLocation(event.getVenue());
 
                 RsvpList rsvpList = meetupService.getRsvpList( event.getId(), key );
-                this.view.setUserList(rsvpList);
+                view.setUserList(rsvpList);
+            } else {
+                view.setMeetupName("No Meetup Found");
+                view.setMeetupLocation(null);
+                view.setUserList(null);
             }
         } catch( Exception ex){
-            this.view.setMeetupName( "Error loading meetup data");
+            view.setMeetupName( "Error loading meetup data");
         }
     }
 }

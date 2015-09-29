@@ -4,6 +4,7 @@ import ca.peidevs.service.MeetupUrlGenerator;
 import ca.peidevs.view.BasicUserInterface;
 import ca.peidevs.view.ConsoleUserInterface;
 import ca.peidevs.view.IView;
+import javafx.application.Application;
 
 import java.time.LocalDate;
 
@@ -11,23 +12,19 @@ public class Generator {
 
     public static void main( String args[]){
 
-        String firstArg = args[0];
 
-        if( firstArg == null){
-            printConsoleUsage();
-        } else if( "-ui".equals( firstArg) ){
-            startUIProcess();
+        if( args.length == 0){
+            Generator.printConsoleUsage();
+        } else if( "-ui".equals( args[0]) ){
+            Generator.startUIProcess();
+        } else if( args.length != 3) {
+            Generator.printConsoleUsage();
         } else {
-            String groupName = firstArg;
+            String groupName = args[0];
+            String meetupDate = args[1];
+            String key = args[2];
 
-            if( args[1] == null || args[2] == null){
-                printConsoleUsage();
-            }else {
-                String meetupDate = args[1];
-                String key = args[2];
-
-                startConsoleApplication(groupName, LocalDate.parse( meetupDate ), key);
-            }
+            Generator.startConsoleApplication(groupName, LocalDate.parse(meetupDate), key);
         }
     }
 
@@ -45,6 +42,12 @@ public class Generator {
         MeetupService meetupService = new MeetupService( new MeetupUrlGenerator());
 
         new ScooterUserListController(view, meetupService);
+        try {
+            ((Application)view).init();
+        } catch (Exception e) {
+            System.out.println( "Exception starting Javafx UI" );
+            e.printStackTrace();
+        }
     }
 
     private static void startConsoleApplication(String groupName, LocalDate meetupDate, String key){
