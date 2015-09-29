@@ -21,12 +21,10 @@ public class MeetupEvent {
      * @param meetupDate
      * @return
      */
-    public Event getEventByDate(String meetupDate ) {
-
-        LocalDate dateToFind = LocalDate.parse( meetupDate );
+    public Event getEventByDate(LocalDate meetupDate ) {
 
         Event event = this.events.stream()
-                .filter( e -> dateToFind.isEqual( e.getDate() ))
+                .filter( e -> meetupDate.isEqual( e.getDate() ))
                 .findFirst()
                 .orElse( new Event() );
 

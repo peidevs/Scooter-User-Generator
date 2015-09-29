@@ -10,18 +10,12 @@ public class MeetupUrlGenerator {
 
     private String characterSet = "UTF-8";
 
-    private String key = "";
-
-    public MeetupUrlGenerator(String key) {
-        this.key = key;
-    }
-
     /**
      * URL Encodes the parameters and builds the URL needed to make the Meetup request
      * @param meetupGroup
      * @return
      */
-    public String generateEventsURL( String meetupGroup ){
+    public String generateEventsURL( String meetupGroup, String key ){
         String response = "";
 
         try {
@@ -42,7 +36,7 @@ public class MeetupUrlGenerator {
      * @param meetupId
      * @return
      */
-    public String getRsvpUrl(String meetupId) {
+    public String getRsvpUrl(String meetupId, String key) {
         String response = "";
 
         try {

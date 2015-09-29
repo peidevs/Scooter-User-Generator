@@ -21,15 +21,15 @@ public class MeetupService {
         this.gson = new Gson();
     };
 
-    public MeetupEvent getUpcomingMeetupEvents( String meetupGroup ) throws IOException{
-        String eventUrl =  meetupUrlGenerator.generateEventsURL(meetupGroup);
+    public MeetupEvent getUpcomingMeetupEvents( String meetupGroup, String key ) throws IOException{
+        String eventUrl =  meetupUrlGenerator.generateEventsURL(meetupGroup, key);
         MeetupEvent events = retrieveData(eventUrl, MeetupEvent.class);
 
         return events;
     };
 
-    public RsvpList getRsvpList( String meetupId) throws IOException{
-        String rsvpUrl = meetupUrlGenerator.getRsvpUrl(meetupId);
+    public RsvpList getRsvpList( String meetupId, String key) throws IOException{
+        String rsvpUrl = meetupUrlGenerator.getRsvpUrl(meetupId, key);
         RsvpList rsvpList = retrieveData( rsvpUrl, RsvpList.class );
 
         return rsvpList;
