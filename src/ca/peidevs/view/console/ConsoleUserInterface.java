@@ -1,8 +1,9 @@
-package ca.peidevs.view;
+package ca.peidevs.view.console;
 
 import ca.peidevs.formatter.ScooterFormatter;
 import ca.peidevs.model.meetup.common.Venue;
 import ca.peidevs.model.meetup.rsvp.RsvpList;
+import ca.peidevs.view.IView;
 
 public class ConsoleUserInterface implements IView {
     @Override
