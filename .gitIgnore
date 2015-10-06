@@ -4,3 +4,4 @@ build/
 staging/
 .idea/
 *.iml
+classes/
