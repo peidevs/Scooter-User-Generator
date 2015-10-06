@@ -12,4 +12,8 @@ public class RsvpList {
     public List<Rsvp> getRsvps() {
         return rsvp;
     }
+
+    public void setRsvps(List<Rsvp> rsvps) {
+        this.rsvp = rsvps;
+    }
 }

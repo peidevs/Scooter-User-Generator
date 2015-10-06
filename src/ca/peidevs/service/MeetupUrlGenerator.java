@@ -3,10 +3,14 @@ package ca.peidevs.service;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
+/**
+ * This class is very generic and repetitive. We could remove this class.
+ */
 public class MeetupUrlGenerator {
 
-    private String eventsUrl = "https://api.meetup.com/2/events?key=%s&group_urlname=%s&sign=true";
-    private String rsvpUrl = "https://api.meetup.com/2/rsvps?key=%s&event_id=%s&sign=true";
+    private String eventsUrl = "https://api.meetup.com/2/events?key=%s&group_urlname=%s";
+    private String rsvpUrl = "https://api.meetup.com/2/rsvps?key=%s&event_id=%s";
+    private String eldersUrl = "https://api.meetup.com/2/profiles?key=%s&group_urlname=%s&role=leads";
 
     private String characterSet = "UTF-8";
 
@@ -19,11 +23,9 @@ public class MeetupUrlGenerator {
         String response = "";
 
         try {
-            String getUrl = String.format(eventsUrl,
+            response = String.format(eventsUrl,
                     URLEncoder.encode(key, characterSet),
                     URLEncoder.encode(meetupGroup.toLowerCase(), characterSet));
-
-            response = getUrl;
         } catch (UnsupportedEncodingException e) {
             response = "What did you mess up that we can't encode this to " + characterSet + "??";
         }
@@ -40,11 +42,23 @@ public class MeetupUrlGenerator {
         String response = "";
 
         try {
-            String getUrl = String.format(rsvpUrl,
+            response = String.format(rsvpUrl,
                     URLEncoder.encode(key, characterSet),
                     URLEncoder.encode(meetupId, characterSet));
+        } catch (UnsupportedEncodingException e) {
+            response = "What did you mess up that we can't encode this to " + characterSet + "??";
+        }
 
-            response = getUrl;
+        return response;
+    }
+
+    public String getEldersUrl( String meetupName, String key ){
+        String response = "";
+
+        try {
+            response = String.format(eldersUrl,
+                    URLEncoder.encode(key, characterSet),
+                    URLEncoder.encode(meetupName, characterSet));
         } catch (UnsupportedEncodingException e) {
             response = "What did you mess up that we can't encode this to " + characterSet + "??";
         }
